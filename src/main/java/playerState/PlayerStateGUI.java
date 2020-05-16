@@ -23,7 +23,7 @@ public class PlayerStateGUI extends JFrame {
         setTitle("Player State"); //to add player name in title
         setLayout(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(1024,700);
+        setSize(1024,600);
         initPositions();
         initGUIElements();;
         addToWindow();
@@ -70,6 +70,55 @@ public class PlayerStateGUI extends JFrame {
         add(attack);
         add(recruit);
     }
+
+    public JLabel getUsername() {
+        return username;
+    }
+
+    public JLabel getGold() {
+        return gold;
+    }
+
+    public JLabel getTotalAttack() {
+        return totalAttack;
+    }
+
+    public JLabel getTotalDefense() {
+        return totalDefense;
+    }
+
+    public JLabel getTotalArmy() {
+        return totalArmy;
+    }
+
+    public JLabel getReports() {
+        return reports;
+    }
+
+    public JTable getArmy() {
+        return army;
+    }
+
+    public JTable getReportsTable() {
+        return reportsTable;
+    }
+
+    public JScrollPane getArmyScroll() {
+        return armyScroll;
+    }
+
+    public JScrollPane getReportsScroll() {
+        return reportsScroll;
+    }
+
+    public JButton getAttack() {
+        return attack;
+    }
+
+    public JButton getRecruit() {
+        return recruit;
+    }
+
     public static void main(String argv[])
     {
         PlayerStateGUI p=new PlayerStateGUI();
