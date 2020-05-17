@@ -62,7 +62,7 @@ public class PlayerStateController {
         gui.getRecruit().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                RecruitTroops rt=new RecruitTroops(user);
+                RecruitTroops rt=new RecruitTroops(user,PlayerStateController.this);
             }
         });
     }
