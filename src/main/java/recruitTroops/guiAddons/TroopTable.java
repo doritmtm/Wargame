@@ -1,4 +1,4 @@
-package recruitTroops.troopTable;
+package recruitTroops.guiAddons;
 
 import javax.swing.*;
 import java.awt.*;
@@ -59,5 +59,33 @@ public class TroopTable extends JPanel {
         add(buyLabel);
         add(buyTextField);
         add(buyButton);
+    }
+
+    public JLabel getType() {
+        return type;
+    }
+
+    public JLabel getAttack() {
+        return attack;
+    }
+
+    public JLabel getDefense() {
+        return defense;
+    }
+
+    public JLabel getCost() {
+        return cost;
+    }
+
+    public JLabel getBuyLabel() {
+        return buyLabel;
+    }
+
+    public JTextField getBuyTextField() {
+        return buyTextField;
+    }
+
+    public JButton getBuyButton() {
+        return buyButton;
     }
 }
