@@ -20,6 +20,26 @@ public class Troop {
         this.count=count;
     }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public void setDefense(int defense) {
+        this.defense = defense;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
     public String getType() {
         return type;
     }
