@@ -2,7 +2,10 @@ package playerState;
 
 import model.Battle;
 import model.Troop;
+import recruitTroops.RecruitTroops;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -56,5 +59,11 @@ public class PlayerStateController {
             gui.getReportsTable().setValueAt(b.getOpponent(),i,1);
             i++;
         }
+        gui.getRecruit().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RecruitTroops rt=new RecruitTroops(user);
+            }
+        });
     }
 }
