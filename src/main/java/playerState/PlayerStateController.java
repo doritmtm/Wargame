@@ -11,8 +11,14 @@ import java.util.Iterator;
 
 public class PlayerStateController {
     private PlayerStateGUI gui;
-    public PlayerStateController(PlayerStateGUI gui) {
+    public PlayerStateController(PlayerStateGUI gui,String user) {
         this.gui = gui;
+        gui.getRecruit().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                RecruitTroops rt=new RecruitTroops(user,PlayerStateController.this);
+            }
+        });
     }
     public void updateGUIWithPlayer(String user)
     {
@@ -59,11 +65,5 @@ public class PlayerStateController {
             gui.getReportsTable().setValueAt(b.getOpponent(),i,1);
             i++;
         }
-        gui.getRecruit().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                RecruitTroops rt=new RecruitTroops(user,PlayerStateController.this);
-            }
-        });
     }
 }
