@@ -27,10 +27,10 @@ public class PlayerStateWriter {
             PrintWriter pw=new PrintWriter(bw);
             troops=new ArrayList<Troop>();
             battles=new ArrayList<Battle>();
-            troops.add(new Troop("Archers",10,5));
-            troops.add(new Troop("Spearman",8,15));
-            troops.add(new Troop("Maceman",15,10));
-            gold=0;
+            troops.add(new Troop("Archers",10,5,20));
+            troops.add(new Troop("Spearman",8,15,25));
+            troops.add(new Troop("Maceman",15,10,10));
+            gold=10000;
             Gson gson=new Gson();
             pw.println(gson.toJson(user));
             pw.println(gson.toJson(troops));
