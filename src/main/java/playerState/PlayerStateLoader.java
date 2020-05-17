@@ -18,6 +18,19 @@ public class PlayerStateLoader {
     private String username;
     private ArrayList<Troop> troops;
     private ArrayList<Battle> battles;
+    public PlayerStateLoader()
+    {
+
+    }
+    public PlayerStateLoader(String user)
+    {
+        try {
+            loadUser(user);
+        } catch (UsernameNotFoundException e) {
+            PlayerStateWriter pw=new PlayerStateWriter();
+            pw.initUser(user);
+        }
+    }
     public void loadUser(String user) throws UsernameNotFoundException
     {
         try {
