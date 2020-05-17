@@ -1,5 +1,8 @@
 package playerState;
 
+import model.Battle;
+import model.Troop;
+
 import javax.swing.*;
 
 public class PlayerState {
@@ -8,10 +11,7 @@ public class PlayerState {
     {
         PlayerStateGUI pgui=new PlayerStateGUI();
         PlayerStateWriter pw=new PlayerStateWriter();
-        pw.writeToUser("doritmtm");
-        pw.writeToUser("Neuron");
-        pw.writeToUser("dars");
-        pw.writeToUser("CosMar");
-        pw.writeToUser("Th3BArBarIAN");
+        pw.updatePlayerState("dars",new Battle(false,"CosMar"));
+        pw.updatePlayerState("dars",new Troop("Archers",10,5,200));
     }
 }

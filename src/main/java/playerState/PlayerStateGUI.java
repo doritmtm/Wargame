@@ -118,10 +118,4 @@ public class PlayerStateGUI extends JFrame {
     public JButton getRecruit() {
         return recruit;
     }
-
-    public static void main(String argv[])
-    {
-        PlayerStateGUI p=new PlayerStateGUI();
-
-    }
 }
