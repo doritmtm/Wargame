@@ -1,28 +1,33 @@
-  {
+ [ {
     "user": {
       "username": "admin",
       "password": "admin",
-      "banned": 0
+      "banned": 0,
+      "banning_reason": null
     }
   },
   {
     "user": {
       "username": "paul",
       "password": "pass1",
-      "banned": 0
+      "banned": 0,
+      "banning_reason":null
     }
   },
   {
     "user": {
       "username": "gheorghe",
       "password": "pass2",
-      "banned": 1
+      "banned": 1,
+      "banning_reason": "reason number 1!"
     }
   },
   {
     "user": {
       "username": "boris",
       "password": "pass3",
-      "banned": 0
+      "banned": 0,
+      "banning_reason": null
     }
   }
+]
