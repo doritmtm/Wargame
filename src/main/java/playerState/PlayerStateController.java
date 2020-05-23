@@ -1,5 +1,6 @@
 package playerState;
 
+import attackPlayer.AttackPlayer;
 import model.Battle;
 import model.Troop;
 import recruitTroops.RecruitTroops;
@@ -17,6 +18,12 @@ public class PlayerStateController {
             @Override
             public void actionPerformed(ActionEvent e) {
                 RecruitTroops rt=new RecruitTroops(user,PlayerStateController.this);
+            }
+        });
+        gui.getAttack().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                AttackPlayer ap=new AttackPlayer(user,PlayerStateController.this);
             }
         });
     }
