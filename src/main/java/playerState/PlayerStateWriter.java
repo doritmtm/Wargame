@@ -18,6 +18,7 @@ public class PlayerStateWriter {
     private int position;
     private String username;
     private ArrayList<Troop> troops;
+    private ArrayList<Troop> initTroops=PlayerState.getInitTroops();
     private ArrayList<Battle> battles;
     public void initUser(String user)
     {
@@ -27,9 +28,7 @@ public class PlayerStateWriter {
             PrintWriter pw=new PrintWriter(bw);
             troops=new ArrayList<Troop>();
             battles=new ArrayList<Battle>();
-            troops.add(new Troop("Archers",10,5,20));
-            troops.add(new Troop("Spearman",8,15,25));
-            troops.add(new Troop("Maceman",15,10,10));
+            troops.addAll(initTroops);
             gold=10000;
             Gson gson=new Gson();
             pw.println(gson.toJson(user));
@@ -159,5 +158,29 @@ public class PlayerStateWriter {
         }
         troops=at;
         updatePlayerStateDatabase();
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public ArrayList<Troop> getTroops() {
+        return troops;
+    }
+
+    public ArrayList<Troop> getInitTroops() {
+        return initTroops;
+    }
+
+    public ArrayList<Battle> getBattles() {
+        return battles;
     }
 }

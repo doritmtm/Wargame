@@ -16,7 +16,7 @@ public class PlayerStateGUI extends JFrame {
     private JLabel armyInfo1=new JLabel("Troop amount:");
     private JLabel armyInfo2=new JLabel("Troop attack:");
     private JLabel armyInfo3=new JLabel("Troop defense:");
-    private JTable army=new JTable(3,3);
+    private JTable army=new JTable(3,PlayerState.getInitTroops().size());
     private JTable reportsTable=new JTable(20,2);
     private JScrollPane armyScroll=new JScrollPane(army);
     private JScrollPane reportsScroll=new JScrollPane(reportsTable);

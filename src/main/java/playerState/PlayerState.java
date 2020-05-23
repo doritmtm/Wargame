@@ -4,27 +4,42 @@ import model.Battle;
 import model.Troop;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class PlayerState {
     private PlayerStateGUI pgui=new PlayerStateGUI();
     private PlayerStateWriter pw=new PlayerStateWriter();
     private PlayerStateController pc;
+    private static ArrayList<Troop> initTroops;
     public PlayerState(String user)
     {
-        pw.updatePlayerState("dars",new Battle(false,"CosMar"));
-        pw.updatePlayerState("dars",new Troop("Archers",10,5,20,200));
-        pw.updatePlayerState("doritmtm",new Battle(false,"CosMar"));
-        pw.updatePlayerState("doritmtm",new Battle(true,"Th3BArBarIAN"));
-
-        pw.updatePlayerState("doritmtm",new Troop("Archers",10,5,20,200));
         pc=new PlayerStateController(pgui,user);
         pc.updateGUIWithPlayer(user);
         pgui.setVisible(true);
-
+    }
+    public static ArrayList<Troop> getInitTroops()
+    {
+        return initTroops;
+    }
+    public static void setInitTroops(ArrayList<Troop> initTroops)
+    {
+        PlayerState.initTroops=initTroops;
     }
     public static void main(String argv[])
     {
-        PlayerState ps=new PlayerState("doritmtm");
+        //de legat initTroops cu adminul
+        ArrayList<Troop> iniTroops=new ArrayList<Troop>();
+        iniTroops.add(new Troop("Archer",12,8,20));
+        iniTroops.add(new Troop("Spearman",8,15,25));
+        iniTroops.add(new Troop("Soldier",10,10,15));
+        iniTroops.add(new Troop("Axeman",10,15,30));
+        iniTroops.add(new Troop("Knight",20,30,60));
+        PlayerState.setInitTroops(iniTroops);
+        PlayerState ps1=new PlayerState("doritmtm");
+        PlayerState ps2=new PlayerState("Neuron");
+        PlayerState ps3=new PlayerState("dars");
+        PlayerState ps4=new PlayerState("CosMar");
+        PlayerState ps5=new PlayerState("Th3BArBarIAN");
 
     }
 }
