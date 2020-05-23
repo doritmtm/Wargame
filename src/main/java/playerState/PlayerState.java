@@ -36,10 +36,6 @@ public class PlayerState {
         iniTroops.add(new Troop("Knight",20,30,60));
         PlayerState.setInitTroops(iniTroops);
         PlayerState ps1=new PlayerState("doritmtm");
-        PlayerState ps2=new PlayerState("Neuron");
-        PlayerState ps3=new PlayerState("dars");
-        PlayerState ps4=new PlayerState("CosMar");
-        PlayerState ps5=new PlayerState("Th3BArBarIAN");
 
     }
 }
