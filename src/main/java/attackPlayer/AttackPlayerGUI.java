@@ -15,7 +15,6 @@ public class AttackPlayerGUI extends JFrame {
         setTitle("Attack Player");
         setLayout(null);
         setSize(600,450);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //not ok
         initPositions();
         initGUIElements();
         addToWindow();
@@ -46,5 +45,29 @@ public class AttackPlayerGUI extends JFrame {
         add(attack);
         add(opponentsChoose);
         add(power);
+    }
+
+    public JLabel getPower() {
+        return power;
+    }
+
+    public JLabel getChoose() {
+        return choose;
+    }
+
+    public JTable getOpponents() {
+        return opponents;
+    }
+
+    public JScrollPane getOpponentsScroll() {
+        return opponentsScroll;
+    }
+
+    public JButton getAttack() {
+        return attack;
+    }
+
+    public JComboBox getOpponentsChoose() {
+        return opponentsChoose;
     }
 }
