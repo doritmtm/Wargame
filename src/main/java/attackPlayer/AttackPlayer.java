@@ -13,7 +13,7 @@ public class AttackPlayer {
         this.user=user;
         this.psc=psc;
         atpgui=new AttackPlayerGUI();
-        atpc=new AttackPlayerController(atpgui);
+        atpc=new AttackPlayerController(atpgui,psc);
         try {
             atpc.updateGUIWithPlayer(user);
         } catch (PlayerNotLoadedException e) {

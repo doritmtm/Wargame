@@ -1,16 +1,27 @@
 package attackPlayer;
 
+import attackPlayer.actions.AttackAction;
+import playerState.PlayerStateController;
 import playerState.PlayerStateLoader;
 import playerState.exceptions.PlayerNotLoadedException;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 public class AttackPlayerController {
     private AttackPlayerGUI atpgui;
-    public AttackPlayerController(AttackPlayerGUI atpgui)
+    private PlayerStateController psc;
+    public AttackPlayerController(AttackPlayerGUI atpgui,PlayerStateController psc)
     {
         this.atpgui=atpgui;
+        this.psc=psc;
+
+    }
+    public void calcConflict(String user1,String user2)
+    {
+
     }
     public void updateGUIWithPlayer(String user) throws PlayerNotLoadedException {
         ArrayList<PlayerStateLoader> apl=PlayerStateLoader.loadAllUsers();
@@ -32,8 +43,11 @@ public class AttackPlayerController {
                 td=pl2.getTotalDefense();
                 if(ta-300<=td && td<=ta+300)
                 {
-                    opponents.add(pl2.getUsername());
-                    opponentsDefense.add(td);
+                    if(!pl.getUsername().equals(pl2.getUsername()))
+                    {
+                        opponents.add(pl2.getUsername());
+                        opponentsDefense.add(td);
+                    }
                 }
             }
             if(opponents.isEmpty())
@@ -43,8 +57,11 @@ public class AttackPlayerController {
                 {
                     pl2=it.next();
                     td=pl2.getTotalDefense();
-                    opponents.add(pl2.getUsername());
-                    opponentsDefense.add(td);
+                    if(!pl.getUsername().equals(pl2.getUsername()))
+                    {
+                        opponents.add(pl2.getUsername());
+                        opponentsDefense.add(td);
+                    }
                 }
 
 
@@ -109,5 +126,14 @@ public class AttackPlayerController {
                 }
             }
         }
+        atpgui.getAttack().addActionListener(new AttackAction(user,this));
+    }
+
+    public AttackPlayerGUI getAtpgui() {
+        return atpgui;
+    }
+
+    public PlayerStateController getPsc() {
+        return psc;
     }
 }
