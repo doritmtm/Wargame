@@ -55,7 +55,7 @@
                     <!-- MainClass in mainfest make a executable jar -->
                     <archive>
                         <manifest>
-                            <mainClass>playerState.PlayerState</mainClass>
+                            <mainClass>login.LoginGUI</mainClass>
                         </manifest>
                     </archive>
                     <appendAssemblyId>false</appendAssemblyId>

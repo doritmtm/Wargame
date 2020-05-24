@@ -16,7 +16,7 @@ public class LoginController {
 
         private LoginGUI lg = new LoginGUI();
         private Type t =  new TypeToken<List<User>>(){}.getType();
-        private String fileName = "d:/wargame/src/main/resources/login.json";
+        private String fileName = System.getProperty("user.dir") + "\\" + "login.json";
         private Gson gs = new Gson();
         private ArrayList<User> users ;
         private ArrayList<User> usersToWrite = new ArrayList<>(100);
