@@ -48,8 +48,8 @@ public class AttackAction implements ActionListener {
             }
             else
             {
-                pw.updatePlayerStateGold(user1,pl2.getGold()+500);
-                pw.updatePlayerStateGold(user2,pl1.getGold()+1000);
+                pw.updatePlayerStateGold(user1,pl1.getGold()+500);
+                pw.updatePlayerStateGold(user2,pl2.getGold()+1000);
                 pw.updatePlayerState(user1,new Battle(false,user2));
                 pw.updatePlayerState(user2,new Battle(true,user1));
             }
