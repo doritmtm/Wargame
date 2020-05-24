@@ -60,23 +60,12 @@ public class LoginController {
                 }
         }
 
-        public void PrintUsers()
-        {
-                users.forEach(System.out::println);
-        }
-
         public void CheckCredentials() {
                 ReadUsers();
                 lg.getButtonLogin().setActionCommand("Login");
                 lg.getButtonLogin().addActionListener(new ButtonClickListener());
         }
-
-        public static void main(String[] args){
-                LoginController lc = new LoginController();
-                lc.ReadUsers();
-                lc.PrintUsers();
-        }
-
+        
         private class ButtonClickListener implements ActionListener {
 
                 @Override
