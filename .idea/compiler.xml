@@ -9,5 +9,8 @@
         <module name="Wargame" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Wargame" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

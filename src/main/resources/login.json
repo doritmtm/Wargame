@@ -1,33 +1,29 @@
- [ {
-    "user": {
-      "username": "admin",
-      "password": "admin",
-      "banned": 0,
-      "banning_reason": null
-    }
+[
+  {
+    "username": "admin",
+    "password": "admin",
+    "banned": false
   },
   {
-    "user": {
-      "username": "paul",
-      "password": "pass1",
-      "banned": 0,
-      "banning_reason":null
-    }
+    "username": "doritmtm",
+    "password": "pass1",
+    "banned": false
   },
   {
-    "user": {
-      "username": "gheorghe",
-      "password": "pass2",
-      "banned": 1,
-      "banning_reason": "reason number 1!"
-    }
+    "username": "dars",
+    "password": "pass2",
+    "banned": true,
+    "banReason": "Ban reason 1"
   },
   {
-    "user": {
-      "username": "boris",
-      "password": "pass3",
-      "banned": 0,
-      "banning_reason": null
-    }
+    "username": "CosMar",
+    "password": "pass3",
+    "banned": true,
+    "banReason": "Ban reason 2"
+  },
+  {
+    "username": "Neuron",
+    "password": "pass4",
+    "banned": false
   }
 ]

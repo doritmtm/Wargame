@@ -2,6 +2,8 @@ package login;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class LoginGUI extends JFrame{
     private JButton buttonLogin = new JButton("Login");
@@ -10,6 +12,7 @@ public class LoginGUI extends JFrame{
     private JLabel labelTitle = new JLabel(("Wargame"));
     private JTextField fieldUser = new JTextField();
     private JPasswordField fieldPass = new JPasswordField();
+    private JOptionPane jopt = new JOptionPane();
 
     public LoginGUI()
     {
@@ -66,9 +69,41 @@ public class LoginGUI extends JFrame{
         add(fieldUser);
     }
 
+
+
+    public JButton getButtonLogin() {
+        return buttonLogin;
+    }
+
+    public void setButtonLogin(JButton buttonLogin) {
+        this.buttonLogin = buttonLogin;
+    }
+
+    public JTextField getFieldUser() {
+        return fieldUser;
+    }
+
+    public void setFieldUser(JTextField fieldUser) {
+        this.fieldUser = fieldUser;
+    }
+
+    public JPasswordField getFieldPass() {
+        return fieldPass;
+    }
+
+    public void setFieldPass(JPasswordField fieldPass) {
+        this.fieldPass = fieldPass;
+    }
+
+    public JOptionPane getJopt()
+    {
+        return jopt;
+    }
+
     public static void main(String[] args)
     {
-        LoginGUI l = new LoginGUI();
-
+        LoginController lc = new LoginController();
+        lc.CheckCredentials();
     }
+
 }
