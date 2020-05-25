@@ -9,6 +9,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import login.exceptions.UserIsBanned;
+import model.Troop;
+import playerState.PlayerState;
 
 import javax.swing.*;
 
@@ -65,13 +67,13 @@ public class LoginController {
                 lg.getButtonLogin().setActionCommand("Login");
                 lg.getButtonLogin().addActionListener(new ButtonClickListener());
         }
-        
+
         private class ButtonClickListener implements ActionListener {
 
                 @Override
                 public void actionPerformed(ActionEvent e) {
                         String command = e.getActionCommand();
-
+                        User foundUser = null;
                         if(command.equals("Login"))
                         {
                                 try {
@@ -82,13 +84,30 @@ public class LoginController {
                                         System.out.println(userFieldValue);
                                         System.out.println(passFieldValue);
                                         for (User u : users) {
-                                                if (u.getUsername().equals(userFieldValue) && u.getPassword().equals(passFieldValue)) {
 
+                                                if (u.getUsername().equals(userFieldValue) && u.getPassword().equals(passFieldValue)) {
+                                                        if(u.getUsername().equals("admin") && u.getPassword().equals("admin"))
+                                                                isAdmin = true;
+                                                        else isAdmin = false;
                                                         if(u.isBanned())
                                                                 throw new UserIsBanned(u);
                                                         JOptionPane.showMessageDialog(null, "Login Successful!", "Login Success",JOptionPane.INFORMATION_MESSAGE);
                                                         found = true;
+                                                        foundUser = u;
                                                 }
+                                        }
+                                        if(found && !isAdmin)
+                                        {
+
+                                                lg.setVisible(false);
+                                                ArrayList<Troop> iniTroops=new ArrayList<Troop>();
+                                                iniTroops.add(new Troop("Archer",12,8,20));
+                                                iniTroops.add(new Troop("Spearman",8,15,25));
+                                                iniTroops.add(new Troop("Soldier",10,10,15));
+                                                iniTroops.add(new Troop("Axeman",10,15,30));
+                                                iniTroops.add(new Troop("Knight",20,30,60));
+                                                PlayerState.setInitTroops(iniTroops);
+                                                PlayerState ps1=new PlayerState(foundUser.getUsername());
                                         }
                                         if (!found)
                                                 throw new InvalidCredentialsException();
