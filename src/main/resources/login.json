@@ -1,0 +1,29 @@
+[
+  {
+    "username": "admin",
+    "password": "admin",
+    "banned": false
+  },
+  {
+    "username": "doritmtm",
+    "password": "pass1",
+    "banned": false
+  },
+  {
+    "username": "dars",
+    "password": "pass2",
+    "banned": true,
+    "banReason": "Ban reason 1"
+  },
+  {
+    "username": "CosMar",
+    "password": "pass3",
+    "banned": true,
+    "banReason": "Ban reason 2"
+  },
+  {
+    "username": "Neuron",
+    "password": "pass4",
+    "banned": false
+  }
+]
