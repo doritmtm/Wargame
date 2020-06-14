@@ -1,6 +1,7 @@
 package playerState;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import model.Battle;
 import model.Troop;
 import playerState.exceptions.UsernameNotFoundException;
@@ -20,24 +21,55 @@ public class PlayerStateWriter {
     private ArrayList<Troop> troops;
     private ArrayList<Troop> initTroops=PlayerState.getInitTroops();
     private ArrayList<Battle> battles;
+    private boolean checkUserExists(String user)
+    {
+        boolean ok=false;
+        try {
+            Scanner sf=new Scanner(f);
+            String usern;
+            Gson gson=new Gson();
+            position=0;
+            while(sf.hasNextLine() && !ok)
+            {
+                String str1,str2,str3,str4;
+                str1=sf.nextLine();
+                str2=sf.nextLine();
+                str3=sf.nextLine();
+                str4=sf.nextLine();
+                usern=gson.fromJson(str1,String.class);
+                if(usern.equals(user))
+                {
+                    ok=true;
+                }
+                position++;
+            }
+            sf.close();
+            position--;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return ok;
+    }
     public void initUser(String user)
     {
         try {
-            FileWriter fw=new FileWriter(f,true);
-            BufferedWriter bw=new BufferedWriter(fw);
-            PrintWriter pw=new PrintWriter(bw);
-            troops=new ArrayList<Troop>();
-            battles=new ArrayList<Battle>();
-            troops.addAll(initTroops);
-            gold=10000;
-            Gson gson=new Gson();
-            pw.println(gson.toJson(user));
-            pw.println(gson.toJson(troops));
-            pw.println(gson.toJson(battles));
-            pw.println(gson.toJson(gold));
-            pw.close();
-            bw.close();
-            fw.close();
+            if (!checkUserExists(user)) {
+                FileWriter fw = new FileWriter(f, true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                PrintWriter pw = new PrintWriter(bw);
+                troops = new ArrayList<Troop>();
+                battles = new ArrayList<Battle>();
+                troops.addAll(initTroops);
+                gold = 10000;
+                Gson gson = new Gson();
+                pw.println(gson.toJson(user));
+                pw.println(gson.toJson(troops));
+                pw.println(gson.toJson(battles));
+                pw.println(gson.toJson(gold));
+                pw.close();
+                bw.close();
+                fw.close();
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -182,5 +214,13 @@ public class PlayerStateWriter {
 
     public ArrayList<Battle> getBattles() {
         return battles;
+    }
+
+    public void setF(File f) {
+        this.f = f;
+    }
+
+    public void setF2(File f2) {
+        this.f2 = f2;
     }
 }
