@@ -79,6 +79,7 @@ public class PlayerStateWriter {
     {
         username=user;
         PlayerStateLoader pl=new PlayerStateLoader();
+        pl.setF(f);
         pl.loadUser(user);
         gold=pl.getGold();
         troops=pl.getTroops();
