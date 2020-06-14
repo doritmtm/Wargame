@@ -1,3 +1,5 @@
+package playerState;
+
 import model.Battle;
 import model.Troop;
 import org.junit.*;
