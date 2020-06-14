@@ -18,7 +18,7 @@ public class PlayerStateLoaderTest {
     public void initTest()
     {
         pl=new PlayerStateLoader();
-        Path resourceDirectory = Paths.get("src","test","resources");
+        Path resourceDirectory = Paths.get("src","test","resources","playerState");
         f=new File(resourceDirectory+"\\"+"PlayerStates0.json");
         pl.setF(f);
     }
@@ -110,8 +110,9 @@ public class PlayerStateLoaderTest {
         }
     }
     @After
-    public void delTest()
+    public void endTest()
     {
         pl=null;
+        f=null;
     }
 }
