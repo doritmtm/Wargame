@@ -9,7 +9,7 @@ public class LoginGUI extends JFrame{
     private JButton buttonLogin = new JButton("Login");
     private JLabel labelUser = new JLabel("Username");
     private JLabel labelPass = new JLabel("Password");
-    private JLabel labelTitle = new JLabel(("Wargame"));
+    private JLabel labelTitle = new JLabel("Wargame");
     private JTextField fieldUser = new JTextField();
     private JPasswordField fieldPass = new JPasswordField();
     private JOptionPane jopt = new JOptionPane();
