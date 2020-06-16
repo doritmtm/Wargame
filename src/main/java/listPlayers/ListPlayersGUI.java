@@ -1,65 +1,56 @@
 package listPlayers;
+
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 public class ListPlayersGUI extends JFrame{
-    private JButton listButton = new JButton("List players");
-    private JButton banButton = new JButton("Ban a player");
-    private JButton seekButton = new JButton("Follow a player");
-    private JLabel titleLabel = new JLabel("Administration");
+    private JTable playersTable = new JTable(28, 2);
+    private JScrollPane playersScroll = new JScrollPane(playersTable);
+    private JLabel playersLabel = new JLabel("Players");
 
-    public void initPositions()
+    public ListPlayersGUI()
     {
-        listButton.setBounds(230, 170,180,40);
-        seekButton.setBounds(230,230,180,40);
-        banButton.setBounds(230,290,180,40);
-        titleLabel.setBounds(210,62,400,60);
+        setProperties();
+        addComponents();
     }
-
     public void setProperties()
     {
-        setTitle("Admin");
-
-        setSize(640, 480);
+        setSize(400, 640);
+        setTitle("Players");
         setResizable(false);
         setBackground(Color.GRAY);
         setLayout(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-        listButton.setBackground(Color.LIGHT_GRAY);
-        listButton.setFont(new Font("arial",Font.BOLD,15));
-
-        seekButton.setBackground(Color.LIGHT_GRAY);
-        seekButton.setFont(new Font("arial",Font.BOLD,15));
-
-        banButton.setBackground(Color.LIGHT_GRAY);
-        banButton.setFont(new Font("arial",Font.BOLD,15));
-
-        titleLabel.setFont(new Font("calibri",Font.BOLD,35));
+        playersTable.getColumnModel().getColumn(0).setHeaderValue("Username");
+        playersTable.getColumnModel().getColumn(1).setHeaderValue("Banned?");
+        playersTable.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+        playersTable.setDefaultRenderer(Object.class, new DefaultTableCellRenderer());
+        playersTable.setRowHeight(20);
+        playersScroll.setBorder(BorderFactory.createEmptyBorder());
+        playersLabel.setFont(new Font("calibri",Font.BOLD,35));
 
         setVisible(true);
+    }
+
+    public void initPositions()
+    {
+        playersScroll.setBounds(100, 80, 200, 500);
+        playersLabel.setBounds(140, 20, 400 ,40);
     }
 
     public void addComponents()
     {
         initPositions();
-        add(listButton);
-        add(seekButton);
-        add(banButton);
-        add(titleLabel);
-    }
-
-    public ListPlayersGUI()
-    {
-
-        addComponents();
-        setProperties();
+        add(playersLabel);
+        add(playersScroll);
 
     }
-    public static void main (String[] args)
+
+    public static void main(String[] args)
     {
         ListPlayersGUI lpg = new ListPlayersGUI();
+
     }
 
 }

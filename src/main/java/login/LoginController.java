@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
-import listPlayers.ListPlayersGUI;
+import listPlayers.AdminGUI;
 import login.exceptions.InvalidCredentialsException;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -13,7 +13,7 @@ import com.google.gson.reflect.TypeToken;
 import login.exceptions.UserIsBanned;
 import model.Troop;
 import playerState.PlayerState;
-import listPlayers.*;
+
 import javax.swing.*;
 
 public class LoginController {
@@ -92,7 +92,7 @@ public class LoginController {
                                                         {
                                                                 isAdmin = true;
                                                                 lg.setVisible(false);
-                                                                ListPlayersGUI lpg = new ListPlayersGUI();
+                                                                AdminGUI lpg = new AdminGUI();
                                                         }
                                                         else isAdmin = false;
                                                         if(u.isBanned())
