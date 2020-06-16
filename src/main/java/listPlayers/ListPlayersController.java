@@ -1,6 +1,6 @@
 package listPlayers;
 
-import java.awt.*;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Type;
@@ -42,6 +42,7 @@ public class ListPlayersController {
     public void fillTable()
     {
         ag.getListButton().addActionListener(new ButtonClickListener());
+
     }
 
     private class ButtonClickListener implements ActionListener{
