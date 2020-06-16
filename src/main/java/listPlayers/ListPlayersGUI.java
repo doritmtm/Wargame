@@ -21,7 +21,6 @@ public class ListPlayersGUI extends JFrame{
         setResizable(false);
         setBackground(Color.GRAY);
         setLayout(null);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         playersTable.getColumnModel().getColumn(0).setHeaderValue("Username");
         playersTable.getColumnModel().getColumn(1).setHeaderValue("Banned?");
         playersTable.setBorder(BorderFactory.createLineBorder(Color.GRAY));
@@ -44,12 +43,6 @@ public class ListPlayersGUI extends JFrame{
         initPositions();
         add(playersLabel);
         add(playersScroll);
-
-    }
-
-    public static void main(String[] args)
-    {
-        ListPlayersGUI lpg = new ListPlayersGUI();
 
     }
 

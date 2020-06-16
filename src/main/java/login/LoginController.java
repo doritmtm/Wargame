@@ -83,8 +83,7 @@ public class LoginController {
 
                                         String userFieldValue = lg.getFieldUser().getText();
                                         String passFieldValue = lg.getFieldPass().getText();
-                                        System.out.println(userFieldValue);
-                                        System.out.println(passFieldValue);
+
                                         for (User u : users) {
 
                                                 if (u.getUsername().equals(userFieldValue) && u.getPassword().equals(passFieldValue)) {
@@ -97,7 +96,7 @@ public class LoginController {
                                                         else isAdmin = false;
                                                         if(u.isBanned())
                                                                 throw new UserIsBanned(u);
-                                                        JOptionPane.showMessageDialog(null, "Login Successful!", "Login Success",JOptionPane.INFORMATION_MESSAGE);
+                                                       if(!isAdmin) JOptionPane.showMessageDialog(null, "Login Successful!", "Login Success",JOptionPane.INFORMATION_MESSAGE);
                                                         found = true;
                                                         foundUser = u;
                                                 }

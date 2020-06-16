@@ -51,14 +51,9 @@ public class AdminGUI extends JFrame{
 
     public AdminGUI()
     {
-
         addComponents();
         setProperties();
-
-    }
-    public static void main (String[] args)
-    {
-        AdminGUI lpg = new AdminGUI();
+        ListPlayersController lpc = new ListPlayersController(this);
     }
 
     public JButton getListButton() {
