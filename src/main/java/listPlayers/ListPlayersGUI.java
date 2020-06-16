@@ -53,4 +53,27 @@ public class ListPlayersGUI extends JFrame{
 
     }
 
+    public JTable getPlayersTable() {
+        return playersTable;
+    }
+
+    public void setPlayersTable(JTable playersTable) {
+        this.playersTable = playersTable;
+    }
+
+    public JScrollPane getPlayersScroll() {
+        return playersScroll;
+    }
+
+    public void setPlayersScroll(JScrollPane playersScroll) {
+        this.playersScroll = playersScroll;
+    }
+
+    public JLabel getPlayersLabel() {
+        return playersLabel;
+    }
+
+    public void setPlayersLabel(JLabel playersLabel) {
+        this.playersLabel = playersLabel;
+    }
 }

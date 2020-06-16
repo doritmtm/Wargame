@@ -61,4 +61,35 @@ public class AdminGUI extends JFrame{
         AdminGUI lpg = new AdminGUI();
     }
 
+    public JButton getListButton() {
+        return listButton;
+    }
+
+    public void setListButton(JButton listButton) {
+        this.listButton = listButton;
+    }
+
+    public JButton getBanButton() {
+        return banButton;
+    }
+
+    public void setBanButton(JButton banButton) {
+        this.banButton = banButton;
+    }
+
+    public JButton getSeekButton() {
+        return seekButton;
+    }
+
+    public void setSeekButton(JButton seekButton) {
+        this.seekButton = seekButton;
+    }
+
+    public JLabel getTitleLabel() {
+        return titleLabel;
+    }
+
+    public void setTitleLabel(JLabel titleLabel) {
+        this.titleLabel = titleLabel;
+    }
 }
