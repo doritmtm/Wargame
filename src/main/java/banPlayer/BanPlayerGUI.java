@@ -53,11 +53,6 @@ public class BanPlayerGUI extends JFrame {
         add(nameLabel);
         add(reasonLabel);
     }
-    public static void main(String[] args)
-    {
-        BanPlayerGUI bpg = new BanPlayerGUI();
-
-    }
 
     public JButton getConfirmButton() {
         return confirmButton;

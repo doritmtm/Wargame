@@ -30,8 +30,8 @@ public class LoginController {
         {
 
                User u1 = new User("doritmtm", "pass1", null,false);
-               User u2 = new User("dars","pass2","Ban reason 1", true);
-               User u3 = new User("CosMar", "pass3", "Ban reason 2", true);
+               User u2 = new User("dars","pass2",null, false);
+               User u3 = new User("CosMar", "pass3", null, false);
                User u4 = new User("Neuron","pass4", null, false);
                User u5 = new User("Th3BArBarIAN","pass5", null, false);
 

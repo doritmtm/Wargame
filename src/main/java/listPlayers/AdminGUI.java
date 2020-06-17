@@ -1,6 +1,7 @@
 package listPlayers;
 import javax.swing.*;
 import java.awt.*;
+import banPlayer.*;
 
 public class AdminGUI extends JFrame{
     private JButton listButton = new JButton("List players");
@@ -54,6 +55,7 @@ public class AdminGUI extends JFrame{
         addComponents();
         setProperties();
         ListPlayersController lpc = new ListPlayersController(this);
+        BanPlayerController bpc = new BanPlayerController(this);
     }
 
     public JButton getListButton() {
