@@ -21,6 +21,7 @@ public class ListPlayersGUI extends JFrame{
         setResizable(false);
         setBackground(Color.GRAY);
         setLayout(null);
+        playersTable.setEnabled(false);
         playersTable.getColumnModel().getColumn(0).setHeaderValue("Username");
         playersTable.getColumnModel().getColumn(1).setHeaderValue("Banned?");
         playersTable.setBorder(BorderFactory.createLineBorder(Color.GRAY));

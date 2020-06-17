@@ -2,7 +2,7 @@ package banPlayer;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.ImageObserver;
+
 
 public class BanPlayerGUI extends JFrame {
     private JButton confirmButton = new JButton("Confirm");
@@ -10,6 +10,12 @@ public class BanPlayerGUI extends JFrame {
     private JLabel reasonLabel = new JLabel("BANNED FOR:");
     private JTextField nameField = new JTextField();
     private JTextArea reasonArea = new JTextArea();
+
+    public BanPlayerGUI()
+    {
+    addComponents();
+    setProperties();
+    }
 
     public void initPositions()
     {
@@ -34,7 +40,7 @@ public class BanPlayerGUI extends JFrame {
         reasonArea.setWrapStyleWord(true);
 
         confirmButton.setFont(new Font("arial",Font.BOLD,15));
-        addComponents();
+
         setVisible(true);
     }
 
@@ -50,6 +56,30 @@ public class BanPlayerGUI extends JFrame {
     public static void main(String[] args)
     {
         BanPlayerGUI bpg = new BanPlayerGUI();
-        bpg.setProperties();
+
+    }
+
+    public JButton getConfirmButton() {
+        return confirmButton;
+    }
+
+    public void setConfirmButton(JButton confirmButton) {
+        this.confirmButton = confirmButton;
+    }
+
+    public JTextField getNameField() {
+        return nameField;
+    }
+
+    public void setNameField(JTextField nameField) {
+        this.nameField = nameField;
+    }
+
+    public JTextArea getReasonArea() {
+        return reasonArea;
+    }
+
+    public void setReasonArea(JTextArea reasonArea) {
+        this.reasonArea = reasonArea;
     }
 }
