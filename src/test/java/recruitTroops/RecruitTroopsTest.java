@@ -66,6 +66,7 @@ public class RecruitTroopsTest {
     @After
     public void endTest()
     {
+        mpa=null;
         f=null;
         f2=null;
         fcorr=null;

@@ -58,7 +58,6 @@ public class PlayerStateWriterTest {
         } catch (IOException e) {
             Assert.fail();
         }
-        resetTestFile();
     }
     @Test
     public void initUserExistentTest()
@@ -69,7 +68,6 @@ public class PlayerStateWriterTest {
         } catch (IOException e) {
             Assert.fail();
         }
-        resetTestFile();
     }
     @Test
     public void updatePlayerStateTroopTest()
@@ -81,8 +79,6 @@ public class PlayerStateWriterTest {
         } catch (IOException e) {
             Assert.fail();
         }
-        fcorr3=null;
-        resetTestFile();
     }
     @Test
     public void updatePlayerStateBattleTest()
@@ -94,8 +90,6 @@ public class PlayerStateWriterTest {
         } catch (IOException e) {
             Assert.fail();
         }
-        fcorr3=null;
-        resetTestFile();
     }
     @Test
     public void updatePlayerStateGoldTest()
@@ -107,13 +101,11 @@ public class PlayerStateWriterTest {
         } catch (IOException e) {
             Assert.fail();
         }
-        fcorr3=null;
-        resetTestFile();
     }
     @After
     public void endTest()
     {
-
+        resetTestFile();
         pw=null;
         f=null;
         f2=null;
