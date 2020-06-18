@@ -5,6 +5,7 @@ import playerState.PlayerStateController;
 import playerState.PlayerStateLoader;
 import playerState.PlayerStateWriter;
 import recruitTroops.RecruitTroopsGUI;
+import recruitTroops.exceptions.NotEnoughGoldException;
 import recruitTroops.guiAddons.TroopTable;
 
 import javax.swing.*;
@@ -26,8 +27,12 @@ public class MakePurchaseAction implements ActionListener {
         this.troopPos = troopPos;
         this.psc=psc;
     }
-    public void makePurchase(String user,int troopPos,int count)
+    public MakePurchaseAction(String user,int troopPos)
     {
+        this.user=user;
+        this.troopPos=troopPos;
+    }
+    public void makePurchase(String user,int count) throws NotEnoughGoldException {
         PlayerStateLoader pl=new PlayerStateLoader(user);
         PlayerStateWriter pw=new PlayerStateWriter();
         int value;
@@ -42,7 +47,7 @@ public class MakePurchaseAction implements ActionListener {
         }
         else
         {
-            JOptionPane.showMessageDialog(null,"Not enough gold!!!");
+            throw new NotEnoughGoldException();
         }
     }
     public void makePurchaseGUIUpdate(String user)
@@ -61,7 +66,11 @@ public class MakePurchaseAction implements ActionListener {
         {
             count=0;
         }
-        makePurchase(user,troopPos,count);
+        try {
+            makePurchase(user,count);
+        } catch (NotEnoughGoldException notEnoughGoldException) {
+            JOptionPane.showMessageDialog(null,"Not enough gold!!!");
+        }
         makePurchaseGUIUpdate(user);
     }
 }
