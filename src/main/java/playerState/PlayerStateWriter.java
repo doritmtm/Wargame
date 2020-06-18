@@ -13,8 +13,8 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class PlayerStateWriter {
-    private File f=new File(System.getProperty("user.dir")+"\\"+"PlayerStates.json");
-    private File f2=new File(System.getProperty("user.dir")+"\\"+"PlayerStatesNew.json");
+    private static File f=new File(System.getProperty("user.dir")+"\\"+"PlayerStates.json");
+    private static File f2=new File(System.getProperty("user.dir")+"\\"+"PlayerStatesNew.json");
     private int gold;
     private int position;
     private String username;
@@ -217,11 +217,11 @@ public class PlayerStateWriter {
         return battles;
     }
 
-    public void setF(File f) {
-        this.f = f;
+    public static void setF(File f) {
+        PlayerStateWriter.f = f;
     }
 
-    public void setF2(File f2) {
-        this.f2 = f2;
+    public static void setF2(File f2) {
+        PlayerStateWriter.f2 = f2;
     }
 }

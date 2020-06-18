@@ -48,8 +48,8 @@ public class PlayerStateWriterTest {
         fsrc=new File(resourceDirectory+"\\"+"PlayerStates0.json");
         fcorr=new File(resourceDirectory+"\\"+ "initUser/PlayerStates1correct.json");
         fcorr2=new File(resourceDirectory+"\\"+ "initUserExistent/PlayerStates1correct.json");
-        pw.setF(f);
-        pw.setF2(f2);
+        PlayerStateWriter.setF(f);
+        PlayerStateWriter.setF2(f2);
         resetTestFile();
     }
     @Test

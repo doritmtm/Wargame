@@ -22,7 +22,7 @@ public class PlayerStateLoaderTest {
         pl=new PlayerStateLoader();
         Path resourceDirectory = Paths.get("src","test","resources","playerState");
         f=new File(resourceDirectory+"\\"+"PlayerStates0.json");
-        pl.setF(f);
+        PlayerStateLoader.setF(f);
     }
     @Test
     public void loadUserNotExistentTest()
@@ -88,7 +88,6 @@ public class PlayerStateLoaderTest {
     {
         ArrayList<PlayerStateLoader> apl1=new ArrayList<PlayerStateLoader>();
         PlayerStateLoader plt=new PlayerStateLoader();
-        plt.setF(f);
         try {
             plt.loadUser("doritmtm");
         } catch (UsernameNotFoundException e) {
@@ -96,7 +95,6 @@ public class PlayerStateLoaderTest {
         }
         apl1.add(plt);
         plt=new PlayerStateLoader();
-        plt.setF(f);
         try {
             plt.loadUser("Neuron");
         } catch (UsernameNotFoundException e) {

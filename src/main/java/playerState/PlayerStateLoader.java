@@ -15,7 +15,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class PlayerStateLoader {
-    private File f=new File(System.getProperty("user.dir")+"\\"+"PlayerStates.json");
+    private static File f=new File(System.getProperty("user.dir")+"\\"+"PlayerStates.json");
     private int gold;
     private int position;
     private String username;
@@ -195,8 +195,8 @@ public class PlayerStateLoader {
         return position;
     }
 
-    public void setF(File f) {
-        this.f = f;
+    public static void setF(File f) {
+        PlayerStateLoader.f = f;
     }
 
     @Override
