@@ -17,6 +17,7 @@ public class MakePurchaseAction implements ActionListener {
     private TroopTable tt;
     private String user;
     private int troopPos;
+    private int remain;
 
     public MakePurchaseAction(RecruitTroopsGUI gui, TroopTable tt, String user, int troopPos,PlayerStateController psc) {
         this.gui = gui;
@@ -33,18 +34,21 @@ public class MakePurchaseAction implements ActionListener {
         value=pl.getTroops().get(troopPos).getCost()*count;
         if(value<=pl.getGold())
         {
-            int remain=pl.getGold()-value;
+            remain=pl.getGold()-value;
             pw.updatePlayerStateGold(user,remain);
             Troop t=pl.getTroops().get(troopPos);
             t.setCount(t.getCount()+count);
             pw.updatePlayerState(user,t);
-            gui.getGold().setText("Gold:"+remain);
-            psc.updateGUIWithPlayer(user);
         }
         else
         {
             JOptionPane.showMessageDialog(null,"Not enough gold!!!");
         }
+    }
+    public void makePurchaseGUIUpdate(String user)
+    {
+        gui.getGold().setText("Gold:"+remain);
+        psc.updateGUIWithPlayer(user);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -58,5 +62,6 @@ public class MakePurchaseAction implements ActionListener {
             count=0;
         }
         makePurchase(user,troopPos,count);
+        makePurchaseGUIUpdate(user);
     }
 }
