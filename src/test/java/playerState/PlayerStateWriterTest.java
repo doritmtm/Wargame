@@ -2,10 +2,7 @@ package playerState;
 
 import model.Battle;
 import model.Troop;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.apache.commons.io.FileUtils;
 import playerState.PlayerState;
 import playerState.PlayerStateWriter;

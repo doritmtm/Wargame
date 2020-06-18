@@ -53,7 +53,7 @@ public class PlayerStateLoaderTest {
         iniTroops.add(new Troop("Soldier",10,10,15,50));
         iniTroops.add(new Troop("Axeman",10,15,30,0));
         iniTroops.add(new Troop("Knight",20,30,60,100));
-        ArrayList<Troop> iniBattles=new ArrayList<Troop>();
+        ArrayList<Battle> iniBattles=new ArrayList<Battle>();
         try {
             pl.loadUser("doritmtm");
             Assert.assertEquals("doritmtm",pl.getUsername());
