@@ -6,6 +6,9 @@ import java.io.*;
 import listPlayers.AdminGUI;
 import login.exceptions.InvalidCredentialsException;
 import java.lang.reflect.Type;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -26,14 +29,46 @@ public class LoginController {
         private ArrayList<User> usersToWrite = new ArrayList<>(100);
         private boolean isAdmin = false;
 
+        public String toMD5(String pass)
+        {
+            String generatedPass = null;
+            int i;
+            try
+            {
+                MessageDigest md = MessageDigest.getInstance("MD5");
+                md.update(pass.getBytes());
+                byte[] bytes = md.digest();
+                StringBuilder sb = new StringBuilder();
+
+                for(i = 0; i < bytes.length; i++)
+                {
+                    sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+
+                }
+                generatedPass = sb.toString();
+
+            }
+            catch(NoSuchAlgorithmException e)
+            {
+                e.printStackTrace();
+            }
+            return generatedPass;
+        }
+
+        public boolean match(String hash, String orig)
+        {
+            String md5 = toMD5(orig);
+            return md5.equals(hash);
+        }
+
         public void WriteUsers()
         {
 
-               User u1 = new User("doritmtm", "pass1", null,false);
-               User u2 = new User("dars","pass2",null, false);
-               User u3 = new User("CosMar", "pass3", null, false);
-               User u4 = new User("Neuron","pass4", null, false);
-               User u5 = new User("Th3BArBarIAN","pass5", null, false);
+               User u1 = new User("doritmtm", toMD5("pass1"), null,false);
+               User u2 = new User("dars",toMD5("pass2"),null, false);
+               User u3 = new User("CosMar", toMD5("pass3"), null, false);
+               User u4 = new User("Neuron",toMD5("pass4"), null, false);
+               User u5 = new User("Th3BArBarIAN",toMD5("pass5"), null, false);
 
                usersToWrite.add(u1);
                usersToWrite.add(u2);
@@ -53,7 +88,7 @@ public class LoginController {
 
         }
         public void ReadUsers() {
-                WriteUsers();
+                WriteUsers(); //not needed anymore, left for examination purposes
                 try
                 {
                         Reader reader = new FileReader(fileName);
@@ -95,7 +130,7 @@ public class LoginController {
 
                                             for (User u : users) {
 
-                                                if (u.getUsername().equals(userFieldValue) && u.getPassword().equals(passFieldValue) && !isAdmin) {
+                                                if (u.getUsername().equals(userFieldValue) && match(u.getPassword(),passFieldValue) && !isAdmin) {
 
                                                     if (u.isBanned())
                                                         throw new UserIsBanned(u);
