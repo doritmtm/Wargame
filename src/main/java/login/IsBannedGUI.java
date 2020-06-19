@@ -8,7 +8,8 @@ public class IsBannedGUI extends JFrame {
 
     public IsBannedGUI()
     {
-
+        addComponents();
+        setProperties();
     }
 
     public void initPositions()
@@ -25,8 +26,8 @@ public class IsBannedGUI extends JFrame {
         setResizable(false);
         reason.setFont(new Font("arial",Font.BOLD,16));
         reason.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        addComponents();
-        setVisible(true);
+
+
     }
 
     public void addComponents()
@@ -36,10 +37,19 @@ public class IsBannedGUI extends JFrame {
         add(cancel);
     }
 
-    public static void main(String[] args)
-    {
-        IsBannedGUI ibg = new IsBannedGUI();
-        ibg.setProperties();
+    public JLabel getReason() {
+        return reason;
     }
 
+    public void setReason(JLabel reason) {
+        this.reason = reason;
+    }
+
+    public JButton getCancel() {
+        return cancel;
+    }
+
+    public void setCancel(JButton cancel) {
+        this.cancel = cancel;
+    }
 }

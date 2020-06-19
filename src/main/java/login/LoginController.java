@@ -158,11 +158,16 @@ public class LoginController {
                                 catch(InvalidCredentialsException | UserIsBanned excep)
                                 {
                                         excep.printStackTrace();
+                                        IsBannedGUI ibg = new IsBannedGUI();
                                         if(excep.getClass().equals(InvalidCredentialsException.class))
                                         JOptionPane.showMessageDialog(null,"Login failed!\nInvalid credentials!",
                                                 "Login Failure",JOptionPane.ERROR_MESSAGE);
                                         else if(excep.getClass().equals((UserIsBanned.class)))
-                                                JOptionPane.showMessageDialog(null,"You have been banned!\n"+((UserIsBanned) excep).getU().getBanReason(),"Login Failure",JOptionPane.ERROR_MESSAGE);
+                                        {
+                                            ibg.setVisible(true);
+
+                                        }
+
                                 }
                         }
                 }
