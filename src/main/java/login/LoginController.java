@@ -1,6 +1,8 @@
 package login;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.*;
 
 import listPlayers.AdminGUI;
@@ -150,6 +152,13 @@ public class LoginController {
                                                 iniTroops.add(new Troop("Knight", 20, 30, 60));
                                                 PlayerState.setInitTroops(iniTroops);
                                                 PlayerState ps1 = new PlayerState(foundUser.getUsername());
+                                                ps1.getPgui().addWindowListener(new WindowAdapter() {
+                                                    @Override
+                                                    public void windowClosing(WindowEvent e) {
+                                                        LoginController lc=new LoginController();
+                                                        lc.CheckCredentials();
+                                                    }
+                                                });
                                             }
                                             if (!found)
                                                 throw new InvalidCredentialsException();

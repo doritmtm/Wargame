@@ -89,7 +89,7 @@ public class FollowPlayerController {
                             ps1.getPgui().getAttack().setVisible(false);
                             ps1.getPgui().getRecruit().setVisible(false);
                             ps1.getPgui().getUsername().setVisible(false);
-                            ps1.getPgui().setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+
 
                         }
                     }

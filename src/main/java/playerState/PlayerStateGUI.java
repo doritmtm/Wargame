@@ -33,13 +33,7 @@ public class PlayerStateGUI extends JFrame {
         setTitle("Player State"); //to add player name in title
         setLayout(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                LoginController lc=new LoginController();
-                lc.CheckCredentials();
-            }
-        });
+
         setSize(1024,600);
         initPositions();
         initGUIElements();;
