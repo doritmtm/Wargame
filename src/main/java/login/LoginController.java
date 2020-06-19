@@ -88,7 +88,7 @@ public class LoginController {
 
         }
         public void ReadUsers() {
-                WriteUsers(); //not needed anymore, left for examination purposes
+                //WriteUsers(); //not needed anymore, left for examination purposes
                 try
                 {
                         Reader reader = new FileReader(fileName);

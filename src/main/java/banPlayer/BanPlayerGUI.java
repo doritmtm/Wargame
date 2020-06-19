@@ -6,8 +6,8 @@ import java.awt.*;
 
 public class BanPlayerGUI extends JFrame {
     private JButton confirmButton = new JButton("Confirm");
-    private JLabel nameLabel = new JLabel(("USERNAME:"));
-    private JLabel reasonLabel = new JLabel("BANNED FOR:");
+    private JLabel nameLabel = new JLabel(("Username:"));
+    private JLabel reasonLabel = new JLabel("Banned for:");
     private JTextField nameField = new JTextField();
     private JTextArea reasonArea = new JTextArea();
 

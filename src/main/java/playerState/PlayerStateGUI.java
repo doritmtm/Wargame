@@ -2,9 +2,15 @@ package playerState;
 
 
 
+import login.LoginController;
+import login.LoginGUI;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class PlayerStateGUI extends JFrame {
     private JLabel username=new JLabel("Welcome doritmtm!");
@@ -26,7 +32,14 @@ public class PlayerStateGUI extends JFrame {
     {
         setTitle("Player State"); //to add player name in title
         setLayout(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                LoginController lc=new LoginController();
+                lc.CheckCredentials();
+            }
+        });
         setSize(1024,600);
         initPositions();
         initGUIElements();;

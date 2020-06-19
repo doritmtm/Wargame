@@ -15,7 +15,7 @@ public class RecruitTroopsGUI extends JFrame {
     public RecruitTroopsGUI()
     {
         setTitle("Recruit Troops");
-        //setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //not ok
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(800,700);
         setLayout(null);
         initPositions();

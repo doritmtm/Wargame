@@ -27,7 +27,6 @@ public class PlayerState {
     }
     public static void main(String argv[])
     {
-        //de legat initTroops cu adminul
         ArrayList<Troop> iniTroops=new ArrayList<Troop>();
         iniTroops.add(new Troop("Archer",12,8,20));
         iniTroops.add(new Troop("Spearman",8,15,25));
@@ -36,7 +35,6 @@ public class PlayerState {
         iniTroops.add(new Troop("Knight",20,30,60));
         PlayerState.setInitTroops(iniTroops);
         PlayerState ps1=new PlayerState("doritmtm");
-
     }
 
     public PlayerStateGUI getPgui() {

@@ -98,7 +98,7 @@ public class BanPlayerController {
                             u.setBanReason(bpg.getReasonArea().getText());
                             WriteUsers();
                             JOptionPane.showMessageDialog(null,"User banned successfully",
-                                    "Success!",JOptionPane.ERROR_MESSAGE);
+                                    "Success!",JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
                     if(!found)

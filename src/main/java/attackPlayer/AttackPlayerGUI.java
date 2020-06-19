@@ -13,6 +13,7 @@ public class AttackPlayerGUI extends JFrame {
     public AttackPlayerGUI()
     {
         setTitle("Attack Player");
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLayout(null);
         setSize(600,450);
         initPositions();
