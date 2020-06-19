@@ -25,7 +25,7 @@ public class IsBannedGUI extends JFrame {
         setLayout(null);
         setResizable(false);
         reason.setFont(new Font("arial",Font.BOLD,16));
-        reason.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
 
 
     }

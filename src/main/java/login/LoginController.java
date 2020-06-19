@@ -133,12 +133,12 @@ public class LoginController {
                                             for (User u : users) {
 
                                                 if (u.getUsername().equals(userFieldValue) && match(u.getPassword(),passFieldValue) && !isAdmin) {
-
+                                                    foundUser = u;
                                                     if (u.isBanned())
                                                         throw new UserIsBanned(u);
                                                     JOptionPane.showMessageDialog(null, "Login Successful!", "Login Success", JOptionPane.INFORMATION_MESSAGE);
                                                     found = true;
-                                                    foundUser = u;
+
                                                 }
                                             }
                                             if (found) {
@@ -167,13 +167,22 @@ public class LoginController {
                                 catch(InvalidCredentialsException | UserIsBanned excep)
                                 {
                                         excep.printStackTrace();
-                                        IsBannedGUI ibg = new IsBannedGUI();
+
                                         if(excep.getClass().equals(InvalidCredentialsException.class))
                                         JOptionPane.showMessageDialog(null,"Login failed!\nInvalid credentials!",
                                                 "Login Failure",JOptionPane.ERROR_MESSAGE);
                                         else if(excep.getClass().equals((UserIsBanned.class)))
                                         {
+                                            IsBannedGUI ibg = new IsBannedGUI();
+                                            ibg.getReason().setText(foundUser.getBanReason());
+
                                             ibg.setVisible(true);
+                                            ibg.getCancel().addActionListener(new ActionListener() {
+                                                @Override
+                                                public void actionPerformed(ActionEvent e) {
+                                                    ibg.dispose();
+                                                }
+                                            });
 
                                         }
 
