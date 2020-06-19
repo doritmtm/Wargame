@@ -1,9 +1,9 @@
-package listPlayers;
+package admin;
 import javax.swing.*;
 import java.awt.*;
 import banPlayer.*;
 import followPlayers.FollowPlayerController;
-
+import listPlayers.*;
 public class AdminGUI extends JFrame{
     private JButton listButton = new JButton("List players");
     private JButton banButton = new JButton("Ban a player");

@@ -1,9 +1,6 @@
 package followPlayers;
-
-import playerState.*;
 import javax.swing.*;
-import java.awt.*;
-import listPlayers.AdminGUI;
+
 
 
 public class FollowPlayerGUI extends JFrame{

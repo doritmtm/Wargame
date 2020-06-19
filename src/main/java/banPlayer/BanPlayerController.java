@@ -1,20 +1,22 @@
 package banPlayer;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.lang.reflect.Type;
-import java.util.*;
-
+import admin.AdminGUI;
 import banPlayer.exceptions.UserNotFound;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import java.io.*;
-import java.util.List;
-import listPlayers.AdminGUI;
 import login.User;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BanPlayerController {
     private AdminGUI ag;
