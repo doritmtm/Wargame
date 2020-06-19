@@ -3,11 +3,13 @@ package followPlayers;
 import banPlayer.BanPlayerController;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import followPlayers.exceptions.PlayerNotFound;
 import listPlayers.AdminGUI;
 import login.User;
 import model.Troop;
 import playerState.PlayerState;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileReader;
@@ -28,7 +30,7 @@ public class FollowPlayerController {
     public FollowPlayerController(AdminGUI ag)
     {
         this.ag = ag;
-        seek();
+        openGUI();
 
     }
 
@@ -70,21 +72,32 @@ public class FollowPlayerController {
 
             if(command.equals("SEEK"))
             {
-                ReadUsers();
-                for(User u:users)
-                {
-                    if(u.getUsername().equals(fpg.getNameField().getText()))
-                    {
-                        ArrayList<Troop> iniTroops = new ArrayList<Troop>();
-                        iniTroops.add(new Troop("Archer", 12, 8, 20));
-                        iniTroops.add(new Troop("Spearman", 8, 15, 25));
-                        iniTroops.add(new Troop("Soldier", 10, 10, 15));
-                        iniTroops.add(new Troop("Axeman", 10, 15, 30));
-                        iniTroops.add(new Troop("Knight", 20, 30, 60));
-                        PlayerState.setInitTroops(iniTroops);
-                        PlayerState ps1 = new PlayerState(u.getUsername());
+                boolean found = false;
+                try {
+                    ReadUsers();
+                    for (User u : users) {
+                        if (u.getUsername().equals(fpg.getNameField().getText())) {
+                            found = true;
+                            ArrayList<Troop> iniTroops = new ArrayList<Troop>();
+                            iniTroops.add(new Troop("Archer", 12, 8, 20));
+                            iniTroops.add(new Troop("Spearman", 8, 15, 25));
+                            iniTroops.add(new Troop("Soldier", 10, 10, 15));
+                            iniTroops.add(new Troop("Axeman", 10, 15, 30));
+                            iniTroops.add(new Troop("Knight", 20, 30, 60));
+                            PlayerState.setInitTroops(iniTroops);
+                            PlayerState ps1 = new PlayerState(u.getUsername());
+                            ps1.getPgui().getAttack().setVisible(false);
+                            ps1.getPgui().getRecruit().setVisible(false);
+                            ps1.getPgui().getUsername().setVisible(false);
+                            ps1.getPgui().setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
+                        }
                     }
+                    if(!found)
+                        throw new PlayerNotFound();
+                } catch (PlayerNotFound playerNotFound) {
+                    JOptionPane.showMessageDialog(null,"User not found!",
+                            "Failed!",JOptionPane.ERROR_MESSAGE);
                 }
             }
 
