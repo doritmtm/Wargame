@@ -26,7 +26,7 @@ public class AdminGUI extends JFrame{
         setResizable(false);
         setBackground(Color.GRAY);
         setLayout(null);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         listButton.setBackground(Color.LIGHT_GRAY);
         listButton.setFont(new Font("arial",Font.BOLD,15));

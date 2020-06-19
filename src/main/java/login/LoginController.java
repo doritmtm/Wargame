@@ -126,6 +126,13 @@ public class LoginController {
                                             isAdmin = true;
                                             lg.setVisible(false);
                                             AdminGUI lpg = new AdminGUI();
+                                            lpg.addWindowListener(new WindowAdapter() {
+                                                @Override
+                                                public void windowClosing(WindowEvent e) {
+                                                    LoginController lc=new LoginController();
+                                                    lc.CheckCredentials();
+                                                }
+                                            });
                                         }
                                         else {
                                             isAdmin = false;
