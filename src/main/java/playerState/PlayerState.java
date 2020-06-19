@@ -38,4 +38,12 @@ public class PlayerState {
         PlayerState ps1=new PlayerState("doritmtm");
 
     }
+
+    public PlayerStateGUI getPgui() {
+        return pgui;
+    }
+
+    public void setPgui(PlayerStateGUI pgui) {
+        this.pgui = pgui;
+    }
 }
