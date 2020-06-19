@@ -49,6 +49,12 @@ public class BanPlayerController {
         bpg.getConfirmButton().addActionListener(new ButtonClickListener());
     }
 
+    public void unban()
+    {
+        ReadUsers();
+        bpg.getUnbanButton().setActionCommand("UN-BAN");
+        bpg.getUnbanButton().addActionListener(new ButtonClickListener());
+    }
     public void ReadUsers()
     {
         try
@@ -84,8 +90,10 @@ public class BanPlayerController {
 
             if(command.equals("GUI"))
             {
+
                 bpg = new BanPlayerGUI();
                 ban();
+                unban();
             }
             else if(command.equals("BAN"))
             {
@@ -96,10 +104,38 @@ public class BanPlayerController {
                     {
                         if(u.getUsername().equals(bpg.getNameField().getText())) {
                             found = true;
+
                             u.setBanned(true);
                             u.setBanReason(bpg.getReasonArea().getText());
                             WriteUsers();
                             JOptionPane.showMessageDialog(null,"User banned successfully",
+                                    "Success!",JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    }
+                    if(!found)
+                        throw new UserNotFound();
+                }
+                catch(UserNotFound except)
+                {
+                    JOptionPane.showMessageDialog(null,"User not found!",
+                            "Failed!",JOptionPane.ERROR_MESSAGE);
+                    except.printStackTrace();
+                }
+            }
+            else if(command.equals("UN-BAN"))
+            {
+                boolean found = false;
+                try
+                {
+                    for(User u:users)
+                    {
+                        if(u.getUsername().equals(bpg.getNameField().getText())) {
+                            found = true;
+
+                            u.setBanned(false);
+                            u.setBanReason(null);
+                            WriteUsers();
+                            JOptionPane.showMessageDialog(null,"User un-banned successfully",
                                     "Success!",JOptionPane.INFORMATION_MESSAGE);
                         }
                     }

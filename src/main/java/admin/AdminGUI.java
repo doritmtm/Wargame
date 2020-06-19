@@ -6,7 +6,7 @@ import followPlayers.FollowPlayerController;
 import listPlayers.*;
 public class AdminGUI extends JFrame{
     private JButton listButton = new JButton("List players");
-    private JButton banButton = new JButton("Ban a player");
+    private JButton banButton = new JButton("Ban/Un-ban a player");
     private JButton seekButton = new JButton("Follow a player");
     private JLabel titleLabel = new JLabel("Administration");
 
