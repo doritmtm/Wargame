@@ -23,7 +23,7 @@ public class BanPlayerController {
     private Type t =  new TypeToken<List<User>>(){}.getType();
     private Gson gs = new Gson();
     private BanPlayerGUI bpg;
-    private boolean activateGUI = false;
+
 
     public BanPlayerController(AdminGUI ag)
     {
