@@ -11,10 +11,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class PlayerStateLoader {
-    private File f=new File(System.getProperty("user.dir")+"\\"+"PlayerStates.json");
+    private static File f=new File(System.getProperty("user.dir")+"\\"+"PlayerStates.json");
     private int gold;
     private int position;
     private String username;
@@ -39,7 +40,6 @@ public class PlayerStateLoader {
     }
     public static ArrayList<PlayerStateLoader> loadAllUsers()
     {
-        File f=new File(System.getProperty("user.dir")+"\\"+"PlayerStates.json");
         ArrayList<PlayerStateLoader> apl=new ArrayList<PlayerStateLoader>();
         PlayerStateLoader pl;
         try {
@@ -160,5 +160,26 @@ public class PlayerStateLoader {
 
     public int getPosition() {
         return position;
+    }
+
+    public static void setF(File f) {
+        PlayerStateLoader.f = f;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PlayerStateLoader that = (PlayerStateLoader) o;
+        return gold == that.gold &&
+                position == that.position &&
+                Objects.equals(username, that.username) &&
+                Objects.equals(troops, that.troops) &&
+                Objects.equals(battles, that.battles);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(gold, position, username, troops, battles);
     }
 }

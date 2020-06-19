@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Troop {
     private String type;
     private int attack;
@@ -69,5 +71,22 @@ public class Troop {
 
     public void setCost(int cost) {
         this.cost = cost;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Troop troop = (Troop) o;
+        return attack == troop.attack &&
+                defense == troop.defense &&
+                count == troop.count &&
+                cost == troop.cost &&
+                Objects.equals(type, troop.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, attack, defense, count, cost);
     }
 }

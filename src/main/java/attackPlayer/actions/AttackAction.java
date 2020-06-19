@@ -19,10 +19,8 @@ public class AttackAction implements ActionListener {
         this.user1 = user1;
         this.apc = apc;
     }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        user2=(String)apc.getAtpgui().getOpponentsChoose().getSelectedItem();
+    public void computeAttack(String user1,String user2)
+    {
         PlayerStateLoader pl1=new PlayerStateLoader(user1);
         PlayerStateLoader pl2=new PlayerStateLoader(user2);
         PlayerStateWriter pw=new PlayerStateWriter();
@@ -56,6 +54,11 @@ public class AttackAction implements ActionListener {
         } catch (PlayerNotLoadedException ex) {
             ex.printStackTrace();
         }
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        user2=(String)apc.getAtpgui().getOpponentsChoose().getSelectedItem();
+        computeAttack(user1,user2);
         apc.getAtpgui().dispatchEvent(new WindowEvent(apc.getAtpgui(),WindowEvent.WINDOW_CLOSING));
         apc.getPsc().updateGUIWithPlayer(user1);
     }

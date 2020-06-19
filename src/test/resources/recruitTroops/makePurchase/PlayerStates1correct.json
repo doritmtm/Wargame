@@ -1,0 +1,8 @@
+"doritmtm"
+[{"type":"Archer","attack":12,"defense":8,"count":100,"cost":20},{"type":"Spearman","attack":8,"defense":15,"count":50,"cost":25},{"type":"Soldier","attack":10,"defense":10,"count":150,"cost":15},{"type":"Axeman","attack":10,"defense":15,"count":0,"cost":30},{"type":"Knight","attack":20,"defense":30,"count":100,"cost":60}]
+[]
+8500
+"Neuron"
+[{"type":"Archer","attack":12,"defense":8,"count":500,"cost":20},{"type":"Spearman","attack":8,"defense":15,"count":0,"cost":25},{"type":"Soldier","attack":10,"defense":10,"count":0,"cost":15},{"type":"Axeman","attack":10,"defense":15,"count":0,"cost":30},{"type":"Knight","attack":20,"defense":30,"count":0,"cost":60}]
+[]
+0

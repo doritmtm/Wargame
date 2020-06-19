@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class Battle {
     private boolean victorious;
     private String opponent;
@@ -25,4 +27,17 @@ public class Battle {
         this.opponent = opponent;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Battle battle = (Battle) o;
+        return victorious == battle.victorious &&
+                Objects.equals(opponent, battle.opponent);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(victorious, opponent);
+    }
 }
