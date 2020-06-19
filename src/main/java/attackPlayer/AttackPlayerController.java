@@ -31,6 +31,8 @@ public class AttackPlayerController {
         int i,j;
         boolean ok=false;
         ta=pl.getTotalAttack();
+        opponents=new ArrayList<String>();
+        opponentsDefense=new ArrayList<Integer>();
         if(apl!=null) {
             Iterator<PlayerStateLoader> it = apl.iterator();
             while (it.hasNext()) {
@@ -93,9 +95,9 @@ public class AttackPlayerController {
         int i;
         for(i=0;i<opponents.size() && i<NR_OF_OPPONENTS;i++)
         {
-            atpgui.getOpponentsChoose().addItem(opponents.get(i));
-            atpgui.getOpponents().setValueAt(opponents.get(i),i,0);
-            atpgui.getOpponents().setValueAt(opponentsDefense.get(i),i,1);
+            atpgui.getOpponentsChoose().addItem(opponents.get(rand[i]));
+            atpgui.getOpponents().setValueAt(opponents.get(rand[i]),i,0);
+            atpgui.getOpponents().setValueAt(opponentsDefense.get(rand[i]),i,1);
         }
     }
 
@@ -105,5 +107,21 @@ public class AttackPlayerController {
 
     public PlayerStateController getPsc() {
         return psc;
+    }
+
+    public ArrayList<String> getOpponents() {
+        return opponents;
+    }
+
+    public ArrayList<Integer> getOpponentsDefense() {
+        return opponentsDefense;
+    }
+
+    public int[] getRand() {
+        return rand;
+    }
+
+    public int getNR_OF_OPPONENTS() {
+        return NR_OF_OPPONENTS;
     }
 }

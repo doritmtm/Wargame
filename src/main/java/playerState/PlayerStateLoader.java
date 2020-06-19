@@ -40,39 +40,6 @@ public class PlayerStateLoader {
     }
     public static ArrayList<PlayerStateLoader> loadAllUsers()
     {
-        File f=new File(System.getProperty("user.dir")+"\\"+"PlayerStates.json");
-        ArrayList<PlayerStateLoader> apl=new ArrayList<PlayerStateLoader>();
-        PlayerStateLoader pl;
-        try {
-            Scanner sf=new Scanner(f);
-            Gson gson=new Gson();
-            int position=0;
-            while(sf.hasNextLine())
-            {
-                pl=new PlayerStateLoader();
-                String str1,str2,str3,str4;
-                str1=sf.nextLine();
-                str2=sf.nextLine();
-                str3=sf.nextLine();
-                str4=sf.nextLine();
-                pl.username=gson.fromJson(str1,String.class);
-                pl.troops=gson.fromJson(str2,new TypeToken<ArrayList<Troop>>() {}.getType());
-                pl.battles=gson.fromJson(str3,new TypeToken<ArrayList<Battle>>() {}.getType());
-                pl.gold=gson.fromJson(str4,int.class);
-                pl.position=position;
-                apl.add(pl);
-                position++;
-            }
-            sf.close();
-            position--;
-            return apl;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-    public static ArrayList<PlayerStateLoader> loadAllUsers(File f)
-    {
         ArrayList<PlayerStateLoader> apl=new ArrayList<PlayerStateLoader>();
         PlayerStateLoader pl;
         try {

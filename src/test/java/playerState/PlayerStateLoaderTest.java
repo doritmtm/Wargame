@@ -101,7 +101,7 @@ public class PlayerStateLoaderTest {
             Assert.fail();
         }
         apl1.add(plt);
-        ArrayList<PlayerStateLoader> apl2=PlayerStateLoader.loadAllUsers(f);
+        ArrayList<PlayerStateLoader> apl2=PlayerStateLoader.loadAllUsers();
         Iterator<PlayerStateLoader> it1=apl1.iterator();
         Iterator<PlayerStateLoader> it2=apl2.iterator();
         while(it1.hasNext())
