@@ -13,6 +13,12 @@ public class FollowPlayerGUI extends JFrame{
     private JTextField nameField = new JTextField();
 
 
+    public FollowPlayerGUI()
+    {
+        addComponents();
+        setProperties();
+    }
+
     public void initPositions()
     {
         seekButton.setBounds(100,150,100,20);
@@ -26,9 +32,6 @@ public class FollowPlayerGUI extends JFrame{
         setLayout(null);
         setResizable(false);
         setTitle("Seek");
-
-        
-
         addComponents();
         setVisible(true);
     }
@@ -41,9 +44,19 @@ public class FollowPlayerGUI extends JFrame{
         add(nameLabel);
     }
 
-    public static void main(String[] args)
-    {
-        FollowPlayerGUI fpg = new FollowPlayerGUI();
-        fpg.setProperties();
+    public JButton getSeekButton() {
+        return seekButton;
+    }
+
+    public void setSeekButton(JButton seekButton) {
+        this.seekButton = seekButton;
+    }
+
+    public JTextField getNameField() {
+        return nameField;
+    }
+
+    public void setNameField(JTextField nameField) {
+        this.nameField = nameField;
     }
 }
