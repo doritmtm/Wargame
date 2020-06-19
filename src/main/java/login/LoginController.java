@@ -1,6 +1,8 @@
 package login;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.*;
 
 import listPlayers.AdminGUI;
@@ -131,12 +133,12 @@ public class LoginController {
                                             for (User u : users) {
 
                                                 if (u.getUsername().equals(userFieldValue) && match(u.getPassword(),passFieldValue) && !isAdmin) {
-
+                                                    foundUser = u;
                                                     if (u.isBanned())
                                                         throw new UserIsBanned(u);
                                                     JOptionPane.showMessageDialog(null, "Login Successful!", "Login Success", JOptionPane.INFORMATION_MESSAGE);
                                                     found = true;
-                                                    foundUser = u;
+
                                                 }
                                             }
                                             if (found) {
@@ -150,6 +152,13 @@ public class LoginController {
                                                 iniTroops.add(new Troop("Knight", 20, 30, 60));
                                                 PlayerState.setInitTroops(iniTroops);
                                                 PlayerState ps1 = new PlayerState(foundUser.getUsername());
+                                                ps1.getPgui().addWindowListener(new WindowAdapter() {
+                                                    @Override
+                                                    public void windowClosing(WindowEvent e) {
+                                                        LoginController lc=new LoginController();
+                                                        lc.CheckCredentials();
+                                                    }
+                                                });
                                             }
                                             if (!found)
                                                 throw new InvalidCredentialsException();
@@ -158,11 +167,25 @@ public class LoginController {
                                 catch(InvalidCredentialsException | UserIsBanned excep)
                                 {
                                         excep.printStackTrace();
+
                                         if(excep.getClass().equals(InvalidCredentialsException.class))
                                         JOptionPane.showMessageDialog(null,"Login failed!\nInvalid credentials!",
                                                 "Login Failure",JOptionPane.ERROR_MESSAGE);
                                         else if(excep.getClass().equals((UserIsBanned.class)))
-                                                JOptionPane.showMessageDialog(null,"You have been banned!\n"+((UserIsBanned) excep).getU().getBanReason(),"Login Failure",JOptionPane.ERROR_MESSAGE);
+                                        {
+                                            IsBannedGUI ibg = new IsBannedGUI();
+                                            ibg.getReason().setText(foundUser.getBanReason());
+
+                                            ibg.setVisible(true);
+                                            ibg.getCancel().addActionListener(new ActionListener() {
+                                                @Override
+                                                public void actionPerformed(ActionEvent e) {
+                                                    ibg.dispose();
+                                                }
+                                            });
+
+                                        }
+
                                 }
                         }
                 }
