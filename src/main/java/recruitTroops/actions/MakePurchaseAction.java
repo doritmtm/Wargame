@@ -36,6 +36,7 @@ public class MakePurchaseAction implements ActionListener {
         PlayerStateLoader pl=new PlayerStateLoader(user);
         PlayerStateWriter pw=new PlayerStateWriter();
         int value;
+        remain=pl.getGold();
         value=pl.getTroops().get(troopPos).getCost()*count;
         if(value<=pl.getGold())
         {
