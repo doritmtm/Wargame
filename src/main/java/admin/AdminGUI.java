@@ -1,12 +1,12 @@
-package listPlayers;
+package admin;
 import javax.swing.*;
 import java.awt.*;
 import banPlayer.*;
 import followPlayers.FollowPlayerController;
-
+import listPlayers.*;
 public class AdminGUI extends JFrame{
     private JButton listButton = new JButton("List players");
-    private JButton banButton = new JButton("Ban a player");
+    private JButton banButton = new JButton("Ban/Un-ban a player");
     private JButton seekButton = new JButton("Follow a player");
     private JLabel titleLabel = new JLabel("Administration");
 
@@ -26,7 +26,7 @@ public class AdminGUI extends JFrame{
         setResizable(false);
         setBackground(Color.GRAY);
         setLayout(null);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         listButton.setBackground(Color.LIGHT_GRAY);
         listButton.setFont(new Font("arial",Font.BOLD,15));

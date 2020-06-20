@@ -5,7 +5,8 @@ import java.awt.*;
 
 
 public class BanPlayerGUI extends JFrame {
-    private JButton confirmButton = new JButton("Confirm");
+    private JButton confirmButton = new JButton("Ban");
+    private JButton unbanButton = new JButton("Un-ban");
     private JLabel nameLabel = new JLabel(("Username:"));
     private JLabel reasonLabel = new JLabel("Banned for:");
     private JTextField nameField = new JTextField();
@@ -19,7 +20,8 @@ public class BanPlayerGUI extends JFrame {
 
     public void initPositions()
     {
-        confirmButton.setBounds(125,190,120,37);
+        confirmButton.setBounds(125,153,120,27);
+        unbanButton.setBounds(125,200,120,27);
         nameField.setBounds(125,60,120,25);
         reasonArea.setBounds(280, 60,200,167);
         nameLabel.setBounds(125,30,120,25);
@@ -27,7 +29,7 @@ public class BanPlayerGUI extends JFrame {
     }
     public void setProperties()
     {
-        setTitle("Ban a player");
+        setTitle("Ban/Un-ban a player");
         setResizable(false);
         setSize(600,300);
         setBackground(Color.LIGHT_GRAY);
@@ -40,13 +42,14 @@ public class BanPlayerGUI extends JFrame {
         reasonArea.setWrapStyleWord(true);
 
         confirmButton.setFont(new Font("arial",Font.BOLD,15));
-
+        unbanButton.setFont(new Font("arial",Font.BOLD,15));
         setVisible(true);
     }
 
     public void addComponents()
     {
         initPositions();
+        add(unbanButton);
         add(confirmButton);
         add(nameField);
         add(reasonArea);
@@ -76,5 +79,13 @@ public class BanPlayerGUI extends JFrame {
 
     public void setReasonArea(JTextArea reasonArea) {
         this.reasonArea = reasonArea;
+    }
+
+    public JButton getUnbanButton() {
+        return unbanButton;
+    }
+
+    public void setUnbanButton(JButton unbanButton) {
+        this.unbanButton = unbanButton;
     }
 }

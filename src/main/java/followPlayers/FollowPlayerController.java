@@ -4,7 +4,7 @@ import banPlayer.BanPlayerController;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import followPlayers.exceptions.PlayerNotFound;
-import listPlayers.AdminGUI;
+import admin.AdminGUI;
 import login.User;
 import model.Troop;
 import playerState.PlayerState;

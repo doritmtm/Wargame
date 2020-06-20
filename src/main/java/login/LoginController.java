@@ -5,10 +5,10 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.*;
 
-import listPlayers.AdminGUI;
+import admin.AdminGUI;
 import login.exceptions.InvalidCredentialsException;
 import java.lang.reflect.Type;
-import java.math.BigInteger;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
@@ -126,6 +126,13 @@ public class LoginController {
                                             isAdmin = true;
                                             lg.setVisible(false);
                                             AdminGUI lpg = new AdminGUI();
+                                            lpg.addWindowListener(new WindowAdapter() {
+                                                @Override
+                                                public void windowClosing(WindowEvent e) {
+                                                    LoginController lc=new LoginController();
+                                                    lc.CheckCredentials();
+                                                }
+                                            });
                                         }
                                         else {
                                             isAdmin = false;

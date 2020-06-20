@@ -1,20 +1,22 @@
 package banPlayer;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.lang.reflect.Type;
-import java.util.*;
-
+import admin.AdminGUI;
 import banPlayer.exceptions.UserNotFound;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import java.io.*;
-import java.util.List;
-import listPlayers.AdminGUI;
 import login.User;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BanPlayerController {
     private AdminGUI ag;
@@ -47,6 +49,12 @@ public class BanPlayerController {
         bpg.getConfirmButton().addActionListener(new ButtonClickListener());
     }
 
+    public void unban()
+    {
+        ReadUsers();
+        bpg.getUnbanButton().setActionCommand("UN-BAN");
+        bpg.getUnbanButton().addActionListener(new ButtonClickListener());
+    }
     public void ReadUsers()
     {
         try
@@ -82,8 +90,10 @@ public class BanPlayerController {
 
             if(command.equals("GUI"))
             {
+
                 bpg = new BanPlayerGUI();
                 ban();
+                unban();
             }
             else if(command.equals("BAN"))
             {
@@ -94,10 +104,38 @@ public class BanPlayerController {
                     {
                         if(u.getUsername().equals(bpg.getNameField().getText())) {
                             found = true;
+
                             u.setBanned(true);
                             u.setBanReason(bpg.getReasonArea().getText());
                             WriteUsers();
                             JOptionPane.showMessageDialog(null,"User banned successfully",
+                                    "Success!",JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    }
+                    if(!found)
+                        throw new UserNotFound();
+                }
+                catch(UserNotFound except)
+                {
+                    JOptionPane.showMessageDialog(null,"User not found!",
+                            "Failed!",JOptionPane.ERROR_MESSAGE);
+                    except.printStackTrace();
+                }
+            }
+            else if(command.equals("UN-BAN"))
+            {
+                boolean found = false;
+                try
+                {
+                    for(User u:users)
+                    {
+                        if(u.getUsername().equals(bpg.getNameField().getText())) {
+                            found = true;
+
+                            u.setBanned(false);
+                            u.setBanReason(null);
+                            WriteUsers();
+                            JOptionPane.showMessageDialog(null,"User un-banned successfully",
                                     "Success!",JOptionPane.INFORMATION_MESSAGE);
                         }
                     }
