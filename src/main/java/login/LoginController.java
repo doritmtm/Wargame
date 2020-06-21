@@ -56,13 +56,13 @@ public class LoginController {
             }
             return generatedPass;
         }
-
+//de testat
         public boolean match(String hash, String orig)
         {
             String md5 = toMD5(orig);
             return md5.equals(hash);
         }
-
+//de testat
         public void WriteUsers()
         {
 
@@ -90,7 +90,7 @@ public class LoginController {
 
         }
         public void ReadUsers() {
-                //WriteUsers(); //not needed anymore, left for examination purposes
+
                 try
                 {
                         Reader reader = new FileReader(fileName);
@@ -101,7 +101,7 @@ public class LoginController {
                         e.printStackTrace();
                 }
         }
-
+//de testat
         public void CheckCredentials() {
                 ReadUsers();
                 lg.getButtonLogin().setActionCommand("Login");
