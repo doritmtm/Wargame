@@ -108,7 +108,63 @@ public class LoginController {
                 lg.getButtonLogin().addActionListener(new ButtonClickListener());
         }
 
-        private class ButtonClickListener implements ActionListener {
+    public LoginGUI getLg() {
+        return lg;
+    }
+
+    public void setLg(LoginGUI lg) {
+        this.lg = lg;
+    }
+
+    public Type getT() {
+        return t;
+    }
+
+    public void setT(Type t) {
+        this.t = t;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public Gson getGs() {
+        return gs;
+    }
+
+    public void setGs(Gson gs) {
+        this.gs = gs;
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
+    }
+
+    public ArrayList<User> getUsersToWrite() {
+        return usersToWrite;
+    }
+
+    public void setUsersToWrite(ArrayList<User> usersToWrite) {
+        this.usersToWrite = usersToWrite;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    private class ButtonClickListener implements ActionListener {
 
                 @Override
                 public void actionPerformed(ActionEvent e) {
