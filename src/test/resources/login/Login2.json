@@ -1,0 +1,12 @@
+[{
+  "username": "test",
+  "password": "test",
+  "banned": false
+},
+  {
+    "username": "test1",
+    "password": "test1",
+    "banned": true,
+    "banReason": "test1"
+  }
+]

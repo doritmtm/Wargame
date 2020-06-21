@@ -23,7 +23,7 @@ import javax.swing.*;
 
 public class LoginController {
 
-        private LoginGUI lg = new LoginGUI();
+        private LoginGUI lg ;
         private Type t =  new TypeToken<List<User>>(){}.getType();
         private String fileName = System.getProperty("user.dir") + "\\" + "login.json";
         private Gson gs = new Gson();
@@ -56,14 +56,14 @@ public class LoginController {
             }
             return generatedPass;
         }
-
+//de testat
         public boolean match(String hash, String orig)
         {
             String md5 = toMD5(orig);
             return md5.equals(hash);
         }
 
-        public void WriteUsers()
+        /*public void WriteUsers()
         {
 
                User u1 = new User("doritmtm", toMD5("pass1"), null,false);
@@ -88,9 +88,9 @@ public class LoginController {
                        e.printStackTrace();
                }
 
-        }
+        }*/
         public void ReadUsers() {
-                //WriteUsers(); //not needed anymore, left for examination purposes
+
                 try
                 {
                         Reader reader = new FileReader(fileName);
@@ -103,12 +103,69 @@ public class LoginController {
         }
 
         public void CheckCredentials() {
+                lg = new LoginGUI();
                 ReadUsers();
                 lg.getButtonLogin().setActionCommand("Login");
                 lg.getButtonLogin().addActionListener(new ButtonClickListener());
         }
 
-        private class ButtonClickListener implements ActionListener {
+    public LoginGUI getLg() {
+        return lg;
+    }
+
+    public void setLg(LoginGUI lg) {
+        this.lg = lg;
+    }
+
+    public Type getT() {
+        return t;
+    }
+
+    public void setT(Type t) {
+        this.t = t;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public Gson getGs() {
+        return gs;
+    }
+
+    public void setGs(Gson gs) {
+        this.gs = gs;
+    }
+
+    public ArrayList<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(ArrayList<User> users) {
+        this.users = users;
+    }
+
+    public ArrayList<User> getUsersToWrite() {
+        return usersToWrite;
+    }
+
+    public void setUsersToWrite(ArrayList<User> usersToWrite) {
+        this.usersToWrite = usersToWrite;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    private class ButtonClickListener implements ActionListener {
 
                 @Override
                 public void actionPerformed(ActionEvent e) {
