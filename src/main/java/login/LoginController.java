@@ -23,7 +23,7 @@ import javax.swing.*;
 
 public class LoginController {
 
-        private LoginGUI lg = new LoginGUI();
+        private LoginGUI lg ;
         private Type t =  new TypeToken<List<User>>(){}.getType();
         private String fileName = System.getProperty("user.dir") + "\\" + "login.json";
         private Gson gs = new Gson();
@@ -62,8 +62,8 @@ public class LoginController {
             String md5 = toMD5(orig);
             return md5.equals(hash);
         }
-//de testat
-        public void WriteUsers()
+
+        /*public void WriteUsers()
         {
 
                User u1 = new User("doritmtm", toMD5("pass1"), null,false);
@@ -88,7 +88,7 @@ public class LoginController {
                        e.printStackTrace();
                }
 
-        }
+        }*/
         public void ReadUsers() {
 
                 try
@@ -101,8 +101,9 @@ public class LoginController {
                         e.printStackTrace();
                 }
         }
-//de testat
+
         public void CheckCredentials() {
+                lg = new LoginGUI();
                 ReadUsers();
                 lg.getButtonLogin().setActionCommand("Login");
                 lg.getButtonLogin().addActionListener(new ButtonClickListener());
